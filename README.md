@@ -1,9 +1,8 @@
-#Тестовый блог на Symfony 4
+## Тестовый блог на Symfony 4
+
 `php7.3, postgresql 11, nginx`
 
-### Запуск проекта
-
-#####ЗАВИСИМОСТИ
+##### ЗАВИСИМОСТИ
 
 * [Docker](https://docs.docker.com/release-notes/docker-ce/) >= v17.12.0
 * [Docker Compose](https://docs.docker.com/release-notes/docker-compose/) >= v1.19.0
