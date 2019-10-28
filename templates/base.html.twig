@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<a href="{{ path('main') }}">
+    {{ 'Главная'|trans }}
+</a>
+<br>
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    {{ 'Привет'|trans }} {{ app.user.email }}
+    |
+    <a href="{{ path('logout') }}">
+        {{ 'Выйти'|trans }}
+    </a>
+    <hr>
+
+{% else %}
+    <a href="{{ path('login') }}">
+        {{ 'Авторизация'|trans }}
+    </a>
+    |
+    <a href="{{ path('reg') }}">
+        {{ 'Регистрация'|trans }}
+    </a>
+    <hr>
+{% endif %}
+
+
+{% block body %}{% endblock %}
+
+{% block javascripts %}{% endblock %}
+</body>
+</html>

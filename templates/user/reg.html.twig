@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+
+{% block body %}
+    <section class="first-section-wm mb-4">
+
+        {{ form_start(registrationForm, {
+            'attr': {'class': 'white-text border border-light p-5'}
+        }) }}
+        <h1 class="font-weight-bold orange-text-wm text-center mb-4">{{ "Регистрация" | trans }}</h1>
+        {{ form_row(registrationForm.email, {
+            label:false,
+            attr: {placeholder: 'Email'}
+        }) }}
+
+        {{ form_row(registrationForm.plainPassword, {
+            label:false,
+            attr: {placeholder: 'Пароль'}
+        }) }}
+
+        <button class="btn btn-wm btn-block my-4" type="submit">{{ "Отправить" | trans }}</button>
+        {{ form_end(registrationForm) }}
+
+    </section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') and article.author.id == app.user.id %}
+        <a href="{{ path('article_edit', {'slug': article.slug}) }}"
+           class="button is-warning">
+            {{ 'Редактировать'|trans }}
+        </a>
+        |
+        <a href="{{ path('article_delete', {'slug': article.slug}) }}"
+           class="button is-danger delete-article"
+           data-trans="{{ 'backoffice.articles.list.deleted_confirm'|trans }}">
+            {{ 'Удалить'|trans }}
+        </a>
+    {% endif %}
+
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.content }}</p>
+    <p>{{ "Дата" | trans }}: {{ article.createdAt|date("d/m/Y") }}</p>
+    <p>{{ "Автор" | trans }}: {{ article.author.email }}</p>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
